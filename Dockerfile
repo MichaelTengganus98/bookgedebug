@@ -14,9 +14,10 @@ COPY . .
 RUN SECRET_KEY=build-only python manage.py collectstatic --noinput
 
 RUN useradd --create-home appuser && chown -R appuser /app
-USER appuser
 
 COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+USER appuser
 
 EXPOSE 8000
 ENTRYPOINT ["docker-entrypoint.sh"]
