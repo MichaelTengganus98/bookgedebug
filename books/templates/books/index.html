@@ -1,0 +1,51 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BookFinder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'books/app.css' %}">
+</head>
+<body>
+  <section class="hero is-primary is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title"><i class="fa-solid fa-book-open"></i> BookFinder</h1>
+        <p class="subtitle">Search Google Books and keep a wishlist.</p>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <div class="container">
+        <div class="tabs is-boxed">
+          <ul>
+            <li class="is-active" data-tab="search"><a>Search</a></li>
+            <li data-tab="wishlist"><a>Wishlist <span id="wishlist-count" class="tag is-rounded">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container">
+      <form id="search-form" class="field has-addons mb-5">
+        <div class="control is-expanded has-icons-left">
+          <input id="q" class="input is-medium" type="search" placeholder="Search books, authors, topics..." required>
+          <span class="icon is-left"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div class="control">
+          <button id="search-btn" class="button is-primary is-medium" type="submit">Search</button>
+        </div>
+      </form>
+
+      <div id="message" class="notification is-hidden"></div>
+      <div id="results" class="columns is-multiline"></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/rater-js@1.0.1/index.js"></script>
+  <script src="{% static 'books/app.js' %}"></script>
+</body>
+</html>
